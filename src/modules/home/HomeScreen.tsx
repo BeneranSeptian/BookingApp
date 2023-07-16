@@ -1,13 +1,14 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {
+  ActivityIndicator,
   FlatList,
   Image,
   Pressable,
   SafeAreaView,
   StyleSheet,
   Text,
-  View,
-} from 'react-native';
+  View
+} from "react-native";
 import {COLOR} from '../../misc/Theme';
 import HotelItem from './components/HotelItem';
 import {useDispatch, useSelector} from 'react-redux';
@@ -74,7 +75,7 @@ const HomeScreen = () => {
 
   return (
     <View style={{backgroundColor: COLOR.background, flex: 1}}>
-      {isLoading ? <Text>Lagi Loading</Text> : <ContentComponent hotelDetail={chosenHotelDetail}/>}
+      {isLoading ? <ActivityIndicator size="large" color="#0000ff" /> : <ContentComponent hotelDetail={chosenHotelDetail}/>}
     </View>
   );
 };
@@ -102,7 +103,7 @@ const GreetingComponent = () => {
         Selamat datang di Booking App!
       </Text>
       <Text style={{fontSize: 14}}>
-        Silahkan pilih hotel yang anda inginkan
+        Silahkan selesaikan pesanan anda
       </Text>
     </View>
   );

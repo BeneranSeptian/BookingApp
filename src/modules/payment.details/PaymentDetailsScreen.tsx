@@ -27,7 +27,9 @@ const PaymentDetailsScreen = () => {
 
 const OrderStepComponent = ({style}) => {
   return (
-    <View style={[{backgroundColor: COLOR.white, width: '100%'}, {...style}]} />
+    <View style={[{backgroundColor: COLOR.white, width: '100%'}, {...style}]} >
+      <CircleStep title={'Detail Pesanan'} number={1} />
+    </View>
   );
 };
 
@@ -257,6 +259,17 @@ const GuestDataComponent = ({title, name,}) => {
   );
 };
 
+const CircleStep = ({ number, title }) => {
+  return (
+    <View style={styles.circleStepContainer}>
+      <View style={styles.circle}>
+        <Text style={styles.number}>{number}</Text>
+      </View>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+};
+
 
 
 const styles = StyleSheet.create({
@@ -275,6 +288,27 @@ const styles = StyleSheet.create({
     padding: 8,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
+  },
+  circleStepContainer: {
+    alignItems: 'center',
+    marginVertical: 10,
+  },
+  circle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: COLOR.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  number: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  title: {
+    color: COLOR.primary,
+    marginTop: 6,
   },
 });
 
